@@ -41,9 +41,6 @@
 				{/each}
 			</div>
 			{/if}
-			{#if ghMetadata && ghMetadata.reactions.total_count}
-				<p class="">{ghMetadata.reactions.total_count} ♥</p>
-			{/if}
 		</div>
 	</div></a
 >

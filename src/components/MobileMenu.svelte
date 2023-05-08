@@ -1,67 +1,107 @@
 <script>
+	import { onDestroy } from "svelte";
+	import {clickOutside} from '../utils/clickOutside.js';
+
 	let isOpen = false;
-	let isMenuRendered;
-	$: {
-		if (isOpen) {
-			setTimeout(() => {
-				isMenuRendered = true;
-			}, 20);
-		} else {
-			setTimeout(() => {
-				isMenuRendered = false;
-			}, 300);
+	let handleClick = null;
+	function removeClickListener() {
+		if (handleClick) {
+			document.removeEventListener("click", handleClick);
+			handleClick = null;
 		}
 	}
+
+	function handleClickOutside(event) {
+		if (isOpen && !event.target.closest(".nav-close-div")) {
+			isOpen = false;
+		}
+	}
+
+	function toggleMenu() {
+		isOpen = !isOpen;
+		if (isOpen) {
+			// addClickListener();
+		} else {
+			removeClickListener();
+		}
+	}
+
+	onDestroy(() => {
+		removeClickListener();
+	});
 </script>
 
 <div class="ml-[-0.60rem] md:hidden">
 	<button
-		class="burger visible"
+		class="focus:shadow-outline ml-auto border-2 border-black bg-red-500 focus:outline-none md:hidden"
 		aria-label="Toggle menu"
 		type="button"
-		on:click={() => (isOpen = !isOpen)}
+		on:click={toggleMenu}
 	>
 		{#if !isOpen}
-			<svg
-				class="absolute h-5 w-5 text-gray-900 dark:text-gray-100"
-				width="20"
-				height="20"
-				viewBox="0 0 20 20"
-				fill="none"
-				><path
-					d="M2.5 7.5H17.5"
-					stroke="currentColor"
-					stroke-width="1.5"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				/><path
-					d="M2.5 12.5H17.5"
-					stroke="currentColor"
-					stroke-width="1.5"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				/></svg
-			>
-		{:else}
-			<svg
-				class="absolute h-5 w-5 text-gray-900 dark:text-gray-100"
-				viewBox="0 0 24 24"
-				width="24"
-				height="24"
-				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				fill="none"
-				shape-rendering="geometricPrecision"
-				data-hide="true"><path d="M18 6L6 18" /><path d="M6 6l12 12" /></svg
-			>
+			<svg fill="none" viewBox="0 0 24 24" class="h-8 w-8" stroke="currentColor">
+				<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" class="inline-flex"
+					  stroke-width="2"></path>
+				<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" class="hidden"
+					  stroke-width="2"></path>
+			</svg>
 		{/if}
 	</button>
+
 	{#if isOpen}
+		<div class="fixed inset-0 bg-gray-900 bg-opacity-50 z-50" on:click_outside={handleClickOutside}>
+			<div class="nav-menu fixed inset-y-0 left-0 w-3/4 bg-gray-800 p-6" use:clickOutside on:click_outside={handleClickOutside}>
+				<ul
+						class=" text-2xl  uppercase"
+				>
+					<li
+							class="border-b border-gray-300 font-semibold text-gray-900 dark:border-gray-700 dark:text-gray-100"
+							style="transition-delay: 150ms;"
+					>
+						<a
+								class="flex w-auto pb-4"
+								on:click={() => setTimeout(() => (isOpen = false), 300)}
+								href="/">Home</a
+						>
+					</li>
+					<li
+							class="border-b border-gray-300 font-semibold text-gray-900 dark:border-gray-700 dark:text-gray-100"
+							style="transition-delay: 250ms;"
+					>
+						<a
+								class="flex w-auto pb-4"
+								on:click={() => setTimeout(() => (isOpen = false), 300)}
+								href="/blog">Blog</a
+						>
+					</li>
+					<li
+							class="border-b border-gray-300 font-semibold text-gray-900 dark:border-gray-700 dark:text-gray-100"
+							style="transition-delay: 350ms;"
+					>
+						<a
+								class="flex w-auto pb-4"
+								on:click={() => setTimeout(() => (isOpen = false), 300)}
+								href="/about">About</a
+						>
+					</li>
+					<li
+							class="border-b border-gray-300 font-semibold text-gray-900 dark:border-gray-700 dark:text-gray-100"
+							style="transition-delay: 400ms;"
+					>
+						<a
+								class="flex w-auto pb-4"
+								on:click={() => setTimeout(() => (isOpen = false), 300)}
+								href="https://github.com/sw-yx/swyxkit">GitHub</a
+						>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	{/if}
+	<!--{#if false}-->
 		<ul
 			class="menu absolute flex flex-col bg-gray-50 text-2xl  uppercase dark:bg-gray-900"
-			class:menuRendered={isMenuRendered}
 		>
 			<li
 				class="border-b border-gray-300 font-semibold text-gray-900 dark:border-gray-700 dark:text-gray-100"
@@ -110,7 +150,7 @@
 			<a class="flex w-auto pb-4" on:click={() => setTimeout(() => isOpen = false, 200)} href="/tweets">Tweets</a>
 		</li> -->
 		</ul>
-	{/if}
+	<!--{/if}-->
 </div>
 
 <style lang="postcss">

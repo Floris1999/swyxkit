@@ -27,8 +27,6 @@
     <meta name="twitter:image" content={DEFAULT_OG_IMAGE}/>
 </svelte:head>
 
-<body class="border-x-2 border-black">
-
 <section class="relative flex w-full items-center border-black dark:border-gray-600 border-b-0"
          aria-labelledby="feature-one"
          id="feature-one">
@@ -108,7 +106,7 @@
                 </div>
 
             </div>
-            <div class="grid grid-cols-1 divide-y-2 divide-black"
+            <div class="grid grid-cols-1 divide-y-2 divide-black invisible md:visible"
                  style="background-image: linear-gradient(to right, #d9e2e9 1px, transparent 1px),linear-gradient(to bottom, #d9e2e9 1px, transparent 1px); background-size: 40px 40px">
                 <div class="bg-lila-500 relative h-full items-center gap-12 p-8 py-12 lg:inline-flex lg:px-20 lg:py-32">
                     <div
@@ -127,7 +125,7 @@
          aria-labelledby="feature-four"
          id="feature-four">
     <div class="relative mx-auto w-full items-center 2xl:max-w-7xl">
-        <div class="grid grid-cols-1 divide-y divide-black border-black md:grid-cols-2 md:divide-x md:divide-y-0 2xl:border-x dark:border-gray-600">
+        <div class="grid grid-cols-1 divide-y divide-black border-black md:grid-cols-2 md:divide-x md:divide-y-0 2xl:border-x dark:divide-gray-600 dark:border-gray-600">
             <div class="block aspect-square h-full w-full lg:mt-0">
                 <Carousel/>
             </div>
@@ -166,5 +164,3 @@
         </div>
     </div>
 </section>
-
-</body>

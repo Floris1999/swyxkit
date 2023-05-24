@@ -22,8 +22,7 @@
 <div class="carousel h-full w-full ">
     <img class="carousel-image object-cover h-full w-full" src={images[currentImageIndex]} alt={`Image ${currentImageIndex}`} />
 
-    <div class=" h-14 w-full flex justify-end">
-
+    <div class=" h-[12%] md:h-[8%] w-full flex justify-end">
         <button
                 class="block bg-orange-600 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400 rotate-180"
                 on:click={previousImage}
@@ -57,6 +56,6 @@
 
     .carousel-image {
         max-width: 100%;
-        max-height: 100%;
+        max-height: 92%;
     }
 </style>

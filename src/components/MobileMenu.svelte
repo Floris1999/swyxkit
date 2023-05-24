@@ -57,11 +57,11 @@
                     <ul
                             class=" text-2xl  uppercase"
                     >
-                        <NavLink href="/">Home</NavLink>
+                        <NavLink on:click={handleClickOutside} href="/">Home</NavLink>
 
-                        <NavLink href="/blog">Blog</NavLink>
+                        <NavLink on:click={handleClickOutside} href="/blog">Blog</NavLink>
 
-                        <NavLink href="/about">About</NavLink>
+                        <NavLink on:click={handleClickOutside} href="/about">About</NavLink>
                     </ul>
                 </div>
 

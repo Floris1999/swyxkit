@@ -3,13 +3,11 @@
     // import hero from '$lib/assets/PXL_20220717_142948860.MP.jpg';
     import hero from '$lib/assets/PXL_20220717_142943888.MP.jpg';
     import Carousel from "../components/Carousel.svelte";
-    import ProjectsCarousal from "../components/ProjectsCarousal.svelte";
 
     /** @type {import('./$types').PageData} */
     export let data;
     // technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
     /** @type {import('$lib/types').ContentItem[]} */
-    $: items = data.items;
 </script>
 
 <svelte:head>
@@ -78,7 +76,7 @@
 </section>
 
 
-<ProjectsCarousal/>
+<!--<ProjectsCarousal/>-->
 
 <section
         class="relative mx-auto flex w-full items-center border-x border-t-0 border-black 2xl:max-w-7xl dark:border-gray-600"

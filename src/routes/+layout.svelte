@@ -13,7 +13,7 @@
     />
 </svelte:head>
 
-<div class="sticky top-0 z-20 mx-auto w-full justify-center border-y border-black 2xl:max-w-7xl 2xl:border bg-white dark:bg-neutral-900 dark:border-gray-600"
+<div class="sticky top-0 z-20 mx-auto w-full justify-center border-y border-black 2xl:max-w-7xl 2xl:border bg-white dark:bg-zinc-900 dark:border-gray-600 "
      aria-labelledby="nav" id="nav">
     <Nav/>
 </div>

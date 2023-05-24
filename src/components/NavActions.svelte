@@ -1,5 +1,5 @@
 <script>
-    import {REPO_OWNER, REPO_URL} from "$lib/siteConfig.js";
+    import {REPO_OWNER} from "$lib/siteConfig.js";
 
     let isDark = true;
     if (typeof localStorage !== 'undefined') {
@@ -23,9 +23,7 @@
             isDark = true;
         }
     }
-
 </script>
-
 
 <div class="hover:bg-lila-900 hover:text-lila-500 text-lila-500 inline-flex transform items-center justify-center border-l-2 border-black bg-black px-6 py-2 text-center text-lg transition duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 md:ml-auto md:py-8">
     <a

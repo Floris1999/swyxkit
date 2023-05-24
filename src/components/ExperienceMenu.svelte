@@ -4,23 +4,23 @@
     export let style;
 
     function scrollIntoView({target}) {
-        console.log(target)
         const el = document.querySelector(target.getAttribute('href'));
         if (!el) return;
 
 
         el.scrollIntoView({
+            block: "start", inline: "nearest",
             behavior: 'smooth'
         });
     }
 </script>
 
 <div class="p-8 lg:w-1/2 lg:p-20">
-    <div class="lg:sticker top-40 py-8 lg:sticky lg:py-20">
+    <div class="lg:sticker top-48 py-8 lg:sticky lg:py-20">
         <div id='card'
              style={style}
              class="duet--recirculation--list-breaker-compact ml:m-auto relative mt-80 ml-[65px] min-h-[475px] w-mobile-breaker  rounded-[4px] p-20 sm:w-tablet-breaker md:mb-40  lg:sticky lg:top-40 lg:mt-0  lg:ml-0 lg:min-h-[600px] lg:w-desktop-breaker lg:overflow-hidden lg:rounded-[20px] bg-blurple/90 text-white">
-            <h2 class="absolute top-[-25px] left-[-80px] -z-10 flex rotate-180 font-manuka text-[110px] font-ultra leading-100 tracking-1 text-gray-13 dark:text-white lg:hidden"
+            <h2 class="absolute top-[-25px] left-[-80px] -z-10 flex rotate-180 font-manuka text-[110px] font-ultra leading-100 tracking-1 text-gray-900 dark:text-white lg:hidden"
                 style="writing-mode: vertical-rl; text-orientation: sideways;">{title}</h2>
             <div class="text-9 relative z-10 mb-20 flex justify-between font-polysans  text-10 uppercase tracking-15">
                 <span class="font-medium">{title}</span></div>
@@ -36,7 +36,8 @@
                             {item.title}
                         </a>
                         <p class="duet--recirculation--breaker-byline font-polysans text-11 uppercase leading-140 tracking-15">
-                            <span class="mr-8 text-gray-ef">{item.startedAt}</span><span
+                            <span class="mr-8 text-gray-ef">{item.startedAt}</span>
+                            <span
                                 class="mr-8 font-light text-gray-ef">{item.endedAt}</span></p>
                     </li>
                 {/each}

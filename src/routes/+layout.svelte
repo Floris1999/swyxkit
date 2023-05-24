@@ -1,7 +1,7 @@
 <script>
     import '../tailwind.css';
     import Nav from '../components/Nav.svelte';
-    import {MY_TWITTER_HANDLE, MY_YOUTUBE, REPO_URL, SITE_TITLE} from '$lib/siteConfig';
+    import {CHESS_PROFILE, LINKEDIN, MY_TWITTER_HANDLE, REPO_OWNER, REPO_URL, SITE_TITLE} from '$lib/siteConfig';
 </script>
 
 <svelte:head>
@@ -13,7 +13,7 @@
     />
 </svelte:head>
 
-<div class="sticky top-0 z-20 mx-auto w-full justify-center border-y border-black 2xl:max-w-7xl 2xl:border dark:bg-neutral-900 dark:border-gray-600"
+<div class="sticky top-0 z-20 mx-auto w-full justify-center border-y border-black 2xl:max-w-7xl 2xl:border bg-white dark:bg-neutral-900 dark:border-gray-600"
      aria-labelledby="nav" id="nav">
     <Nav/>
 </div>
@@ -25,11 +25,8 @@
     <div class="grid w-full max-w-2xl grid-cols-1 gap-4 px-4 pb-16 sm:grid-cols-2 sm:px-8">
         <div class="flex flex-col space-y-4">
             <a class="text-gray-500 transition hover:text-gray-300" href="/">Home</a>
+            <a class="text-gray-500 transition hover:text-gray-300" href="/blog">Blog</a>
             <a class="text-gray-500 transition hover:text-gray-300" href="/about">About</a>
-            <a class="text-gray-500 transition hover:text-gray-300" href="/#newsletter">Newsletter</a>
-            <a class="text-gray-500 transition hover:text-gray-300" href="/rss.xml" rel="external">
-                RSS
-            </a>
         </div>
         <div class="flex flex-col space-y-4">
             <a
@@ -44,23 +41,33 @@
                     class="text-gray-500 transition hover:text-gray-300"
                     target="_blank"
                     rel="noopener noreferrer"
-                    href={REPO_URL}
+                    href={'https://github.com/' + REPO_OWNER}
             >
                 GitHub
             </a>
+
             <a
                     class="text-gray-500 transition hover:text-gray-300"
                     target="_blank"
                     rel="noopener noreferrer"
-                    href={MY_YOUTUBE}
+                    href={LINKEDIN}
             >
-                YouTube
+                LinkedIn
             </a>
+
+            <a
+                    class="text-gray-500 transition hover:text-gray-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={CHESS_PROFILE}
+            >
+                Chess acount
+            </a>
+
+
         </div>
     </div>
     <p class="prose px-4 dark:prose-invert sm:px-8">
-        This blog is based on the
-        <a href="https://swyxkit.netlify.app/">swyxkit</a>
-        template.
+        This blog is made with SvelteKit x Tailwind
     </p>
 </footer>

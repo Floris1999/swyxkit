@@ -21,6 +21,7 @@
 
 <div class="carousel h-full w-full ">
     <img class="carousel-image object-cover h-full w-full" src={images[currentImageIndex]} alt={`Image ${currentImageIndex}`} />
+
     <div class=" h-14 w-full flex justify-end">
 
         <button
@@ -48,35 +49,10 @@
 <style>
     .carousel {
         position: relative;
-        /*height: 300px;*/
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
-
-    .carousel-prev, .carousel-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1;
-        color: white;
-        background-color: rgba(0,0,0,0.5);
-        border: none;
-        padding: 1rem;
-        cursor: pointer;
-    }
-
-    .carousel-prev {
-        left: 0;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
-
-    .carousel-next {
-        right: 0;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
     }
 
     .carousel-image {
